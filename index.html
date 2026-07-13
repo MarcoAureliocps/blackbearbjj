@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Bear BJJ | Ofertas Imperdíveis para Atletas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --bg:#080a0f;--bg2:#0e1118;--bg3:#141824;--card:#111520;
+  --border:rgba(255,255,255,0.06);--border-h:rgba(0,229,255,0.45);
+  --cyan:#00e5ff;--red:#ff2d2d;--gold:#f5a623;--green:#00e096;--purple:#a855f7;
+  --text:#f0f2f5;--muted:#8892a4;--dim:#3d4a5c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* TICKER */
+.ticker-wrap{background:#000;overflow:hidden;padding:8px 0;border-bottom:1px solid rgba(255,45,45,0.3)}
+.ticker{display:flex;width:max-content;animation:tick 30s linear infinite}
+.ticker-item{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.1em;padding:0 40px;color:var(--muted);white-space:nowrap}
+.ticker-item em{font-style:normal;color:var(--red)}
+.ticker-item strong{color:var(--gold)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* URGENCY BAR */
+.urgency-bar{background:linear-gradient(90deg,#1a0505,#2d0808,#1a0505);border-bottom:1px solid rgba(255,45,45,0.4);padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.urgency-bar span{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.urgency-bar .timer{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:var(--red);letter-spacing:.05em;min-width:90px;text-align:center}
+.urgency-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(8,10,15,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;font-style:italic;text-transform:uppercase;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.logo i{color:var(--cyan);font-size:22px}
+.logo em{font-style:normal;color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:9px 20px;border-radius:4px;font-weight:900!important;animation:glow-red 2.5s ease infinite}
+@keyframes glow-red{0%,100%{box-shadow:0 0 0 rgba(255,45,45,0)}50%{box-shadow:0 0 20px rgba(255,45,45,0.5)}}
+
+/* HERO */
+#hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:80px 40px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 40%,rgba(0,229,255,0.07) 0%,transparent 65%),radial-gradient(ellipse 50% 60% at 10% 90%,rgba(255,45,45,0.05) 0%,transparent 55%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
+.hero-content{position:relative;z-index:2;max-width:960px;text-align:center}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.25em;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:36px;height:1px;background:var(--cyan);opacity:.35}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(60px,11vw,128px);line-height:.87;margin-bottom:12px}
+.hero-title .hl-red{color:var(--red)}
+.hero-title .hl-dim{color:var(--muted)}
+.hero-title .hl-cyan{color:var(--cyan)}
+.hero-pain{font-size:17px;color:var(--muted);line-height:1.65;max-width:560px;margin:24px auto 0}
+.hero-pain strong{color:var(--text)}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.btn-fire{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;font-style:italic;text-transform:uppercase;background:linear-gradient(135deg,#ff2d2d,#c80000);color:#fff;padding:17px 44px;border-radius:4px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer}
+.btn-fire:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,45,45,0.5)}
+.btn-cyan{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;font-style:italic;text-transform:uppercase;background:var(--cyan);color:#000;padding:17px 44px;border-radius:4px;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-cyan:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,229,255,0.4)}
+.btn-ghost{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;font-style:italic;text-transform:uppercase;background:transparent;color:var(--text);padding:17px 44px;border-radius:4px;border:1px solid var(--border);text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:10px}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero-proof{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap}
+.hero-proof-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.hero-proof-item i{color:var(--green);font-size:14px}
+.hero-sep{width:4px;height:4px;border-radius:50%;background:var(--dim)}
+
+/* STATS */
+.stats-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 40px;display:flex;justify-content:center;gap:64px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;color:var(--cyan);line-height:1}
+.stat-num.fire{color:var(--red)}
+.stat-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:4px}
+
+/* FLASH SALE BANNER */
+.flash-banner{background:linear-gradient(90deg,#1a0a00,#2d1500,#1a0a00);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.flash-left{display:flex;align-items:center;gap:16px}
+.flash-icon{font-size:28px;animation:shake .6s ease infinite alternate}
+@keyframes shake{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.flash-text h3{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;font-style:italic;text-transform:uppercase;color:var(--gold)}
+.flash-text p{font-size:13px;color:var(--muted)}
+.flash-right{display:flex;align-items:center;gap:20px}
+.flash-timer-blocks{display:flex;gap:8px}
+.timer-block{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:6px;padding:8px 14px;text-align:center;min-width:56px}
+.timer-block .tnum{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:var(--gold);line-height:1}
+.timer-block .tlbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+/* SECTION HEADER */
+.sec{padding:72px 40px;max-width:1240px;margin:0 auto}
+.sec-hd{margin-bottom:40px;display:flex;align-items:flex-end;gap:20px}
+.sec-hd h2{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;font-style:italic;text-transform:uppercase;line-height:1}
+.sec-hd .line{flex:1;height:1px;background:var(--border);margin-bottom:8px}
+.sec-hd a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);text-decoration:none;white-space:nowrap;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+
+/* CAT FILTER */
+.cat-nav{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.cat-btn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:8px 18px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.cat-btn:hover,.cat-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,229,255,0.07)}
+
+/* OFFER CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+
+.ocard{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column;position:relative}
+.ocard:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 24px 64px rgba(0,0,0,.5)}
+.ocard-hot{border-color:rgba(255,45,45,0.3)!important}
+.ocard-hot::before{content:'🔥 QUENTE';position:absolute;top:0;left:0;right:0;background:rgba(255,45,45,0.12);font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red);text-align:center;padding:4px;border-bottom:1px solid rgba(255,45,45,0.2);z-index:2}
+.ocard-hot .oimg{margin-top:26px}
+
+.oimg{position:relative;height:210px;overflow:hidden;background:var(--bg3)}
+.oimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ocard:hover .oimg img{transform:scale(1.06)}
+.obadges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:5px;z-index:1}
+.plat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:3px;display:inline-flex;align-items:center;gap:4px}
+.plat-ml{background:#ffe600;color:#222}
+.plat-shopee{background:#ee4d2d;color:#fff}
+.plat-own{background:var(--cyan);color:#000}
+.odiscount{position:absolute;top:10px;right:10px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:900;font-style:italic;background:var(--red);color:#fff;padding:5px 10px;border-radius:4px;z-index:1}
+.ostock{position:absolute;bottom:0;left:0;right:0;background:rgba(255,45,45,0.85);backdrop-filter:blur(4px);padding:5px 10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;display:flex;align-items:center;gap:6px}
+.ostock-bar{height:3px;background:rgba(255,255,255,0.2);border-radius:2px;margin:0 10px 8px;overflow:hidden}
+.ostock-fill{height:100%;border-radius:2px;background:var(--red)}
+
+.obody{padding:18px;flex:1;display:flex;flex-direction:column;gap:10px}
+.otitle{font-weight:600;font-size:14px;line-height:1.4;color:var(--text)}
+.orating{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--gold)}
+.orating span{color:var(--muted)}
+.oprice-block{margin-top:auto}
+.ofrom{font-size:12px;color:var(--dim);text-decoration:line-through}
+.oprice{font-family:'Barlow Condensed',sans-serif;font-size:31px;font-weight:900;color:var(--text);line-height:1.1}
+.oprice em{font-style:normal;color:var(--cyan)}
+.oinst{font-size:12px;color:var(--muted);margin-top:2px}
+.osave{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+.obtn{display:block;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;font-style:italic;text-transform:uppercase;letter-spacing:.04em;padding:13px;border-radius:6px;background:var(--bg3);border:1px solid var(--border);color:var(--text);text-decoration:none;transition:all .2s;margin-top:14px;cursor:pointer}
+.obtn:hover,.obtn-active{background:var(--cyan);color:#000;border-color:var(--cyan)}
+.obtn-red:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* SUPPLEMENT SECTION */
+.supl-section{background:linear-gradient(180deg,var(--bg) 0%,#0c0f1a 40%,var(--bg) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px}
+.supl-inner{max-width:1240px;margin:0 auto}
+.supl-header{text-align:center;margin-bottom:48px}
+.supl-header .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--purple);margin-bottom:12px}
+.supl-header h2{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;line-height:.9;margin-bottom:16px}
+.supl-header p{font-size:16px;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.6}
+.supl-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
+.supl-tab{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:9px 22px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.supl-tab:hover,.supl-tab.active{border-color:var(--purple);color:var(--purple);background:rgba(168,85,247,0.08)}
+
+/* SUPL CARD */
+.scard{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.scard:hover{border-color:rgba(168,85,247,0.4);transform:translateY(-5px);box-shadow:0 24px 64px rgba(0,0,0,.5)}
+.scard-img{height:200px;overflow:hidden;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative}
+.scard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.scard:hover .scard-img img{transform:scale(1.06)}
+.scard-badge{position:absolute;top:10px;right:10px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:900;font-style:italic;background:var(--purple);color:#fff;padding:4px 10px;border-radius:4px}
+.scard-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:10px}
+.scard-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--purple);border:1px solid rgba(168,85,247,0.3);background:rgba(168,85,247,0.08);padding:3px 8px;border-radius:3px;display:inline-block;width:fit-content}
+.scard-title{font-weight:600;font-size:14px;line-height:1.4}
+.scard-macros{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.scard-macro{font-size:11px;background:var(--bg3);border-radius:3px;padding:2px 8px;color:var(--muted)}
+.scard-price{font-family:'Barlow Condensed',sans-serif;font-size:31px;font-weight:900;color:var(--text);line-height:1}
+.scard-price em{font-style:normal;color:var(--purple)}
+.scard-from{font-size:12px;color:var(--dim);text-decoration:line-through}
+.scard-save{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase}
+.scard-btn{display:block;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;font-style:italic;text-transform:uppercase;padding:13px;border-radius:6px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.3);color:var(--purple);text-decoration:none;transition:all .2s;margin-top:14px}
+.scard-btn:hover{background:var(--purple);color:#fff;border-color:var(--purple)}
+
+/* FEATURED SUPL - large banner */
+.supl-featured{background:linear-gradient(135deg,rgba(168,85,247,0.08) 0%,var(--card) 60%);border:1px solid rgba(168,85,247,0.2);border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:40px}
+.supl-feat-text .tag-new{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--purple);margin-bottom:12px}
+.supl-feat-text h3{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;font-style:italic;text-transform:uppercase;line-height:.9;margin-bottom:16px}
+.supl-feat-text p{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:24px}
+.supl-feat-perks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.supl-feat-perks li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.supl-feat-perks li i{color:var(--green);width:14px}
+.supl-feat-price{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
+.sfp-from{font-size:16px;color:var(--dim);text-decoration:line-through}
+.sfp-price{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--text);line-height:1}
+.sfp-price em{font-style:normal;color:var(--purple)}
+.supl-feat-img{height:320px;background:var(--bg3);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.supl-feat-img img{width:100%;height:100%;object-fit:cover}
+
+/* OWN SHIRTS */
+.own-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px}
+.own-inner{max-width:1240px;margin:0 auto}
+.own-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.own-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.own-eyebrow::after{content:'';flex:1;max-width:36px;height:1px;background:var(--gold);opacity:.35}
+.own-title{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;line-height:.9;margin-bottom:20px}
+.own-desc{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:24px}
+.own-perks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:36px}
+.own-perks li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.own-perks li i{color:var(--gold);width:14px}
+.shirts-showcase{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shirt-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .3s}
+.shirt-card:hover{border-color:rgba(245,166,35,0.4);transform:translateY(-3px)}
+.shirt-img{height:175px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.shirt-img i{font-size:30px;color:var(--dim)}
+.shirt-img span{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+.shirt-info{padding:12px}
+.shirt-name{font-weight:600;font-size:13px;margin-bottom:5px}
+.shirt-price{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;color:var(--gold)}
+.shirt-price span{font-size:12px;color:var(--muted);font-weight:400;margin-left:4px}
+
+/* SOCIAL PROOF STRIP */
+.sp-strip{background:var(--bg2);border-top:1px solid var(--border);padding:40px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.sp-item{text-align:center}
+.sp-num{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--text);line-height:1}
+.sp-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:4px}
+.sp-stars{color:var(--gold);font-size:13px;margin-top:4px}
+
+/* EMOTIONAL SECTION */
+.emotion-section{padding:80px 40px;max-width:1240px;margin:0 auto;text-align:center}
+.emotion-section .big-q{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,6vw,72px);font-weight:900;font-style:italic;text-transform:uppercase;line-height:.95;margin-bottom:24px}
+.emotion-section p{font-size:17px;color:var(--muted);line-height:1.7;max-width:560px;margin:0 auto 40px}
+
+/* HOW */
+.how-section{padding:72px 40px;max-width:1240px;margin:0 auto}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.how-step{background:var(--card);padding:36px 24px;transition:background .2s}
+.how-step:hover{background:var(--bg3)}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--border);line-height:1;margin-bottom:16px}
+.step-icon{font-size:22px;color:var(--cyan);margin-bottom:14px}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* VIP */
+.vip-section{padding:72px 40px;max-width:1240px;margin:0 auto}
+.vip-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:64px;text-align:center;position:relative;overflow:hidden}
+.vip-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
+.vip-box::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,224,150,0.05) 0%,transparent 55%);pointer-events:none}
+.vip-box h3{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;font-style:italic;text-transform:uppercase;line-height:1;margin-bottom:14px;position:relative;z-index:1}
+.vip-box p{font-size:16px;color:var(--muted);max-width:460px;margin:0 auto 36px;line-height:1.7;position:relative;z-index:1}
+.vip-perks{display:flex;justify-content:center;gap:36px;margin-bottom:44px;flex-wrap:wrap;position:relative;z-index:1}
+.vip-perk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.vip-perk i{color:var(--green);font-size:15px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 40px 28px}
+.footer-inner{max-width:1240px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:14px;max-width:260px}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul a{font-size:13px;color:var(--dim);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:var(--cyan)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--dim);flex-wrap:wrap;gap:8px}
+
+/* POPUP */
+#popup{position:fixed;bottom:22px;left:22px;background:var(--card);border:1px solid var(--border);padding:14px 18px;border-radius:10px;font-size:13px;z-index:300;display:flex;align-items:center;gap:10px;box-shadow:0 16px 48px rgba(0,0,0,.6);transform:translateX(calc(-100% - 22px));transition:transform .4s ease;max-width:290px}
+#popup.show{transform:translateX(0)}
+.popup-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 1.2s ease infinite}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 20px}.nav-links{display:none}
+  #hero{padding:60px 20px}
+  .sec,.own-section,.supl-section,.vip-section,.how-section,.emotion-section{padding:56px 20px}
+  .own-grid,.supl-featured{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-bar,.sp-strip{gap:28px;padding:24px 20px}
+  .flash-banner{padding:20px}
+}
+@media(max-width:600px){
+  .hero-title{font-size:58px}
+  .how-grid,.footer-grid,.shirts-showcase{grid-template-columns:1fr}
+  .vip-box{padding:36px 20px}
+  .vip-perks{flex-direction:column;align-items:center}
+  .supl-feat-text h3{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">⚡ Kimono A2 <em>−44%</em> só hoje</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">🔥 Creatina 500g <em>R$69</em></span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">💊 Whey 900g <strong>frete grátis</strong></span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">👕 Rashguard <em>−51%</em> na Shopee</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">🎽 Camisetas BJJ exclusivas — tiragem <em>limitada</em></span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">⚡ Kimono A2 <em>−44%</em> só hoje</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">🔥 Creatina 500g <em>R$69</em></span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">💊 Whey 900g <strong>frete grátis</strong></span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">👕 Rashguard <em>−51%</em> na Shopee</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">🎽 Camisetas BJJ exclusivas — tiragem <em>limitada</em></span>
+  </div>
+</div>
+
+<!-- Urgency Bar -->
+<div class="urgency-bar">
+  <div class="urgency-dot"></div>
+  <span>⚡ OFERTAS ENCERRAM EM</span>
+  <div class="timer" id="main-timer">00:00:00</div>
+  <span>— Não perca. Sem reprise.</span>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="logo"><i class="fa-solid fa-shield-halved"></i>BLACK<em>BEAR</em> BJJ</a>
+  <ul class="nav-links">
+    <li><a href="#ofertas">Ofertas</a></li>
+    <li><a href="#suplementos">Suplementos</a></li>
+    <li><a href="#camisetas">Camisetas</a></li>
+    <li><a href="#kimonos-sec">Kimonos</a></li>
+    <li><a href="#nogi-sec">No-Gi</a></li>
+    <li><a href="#grupo" class="nav-cta">🔥 Grupo VIP</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Garimpo diário para quem vive no tatame</div>
+    <h1 class="hero-title">
+      Chega de<br>
+      <span class="hl-red">pagar</span><br>
+      <span class="hl-cyan">caro.</span>
+    </h1>
+    <p class="hero-pain">
+      Todo atleta merece equipamento de qualidade. Mas <strong>kimono bom não precisa custar o salário.</strong> A gente garimpou, testou e selecionou — você só aproveita.
+    </p>
+    <div class="hero-actions">
+      <a href="#ofertas" class="btn-fire">🔥 Ver Ofertas Agora</a>
+      <a href="#suplementos" class="btn-cyan">💊 Suplementos</a>
+      <a href="#camisetas" class="btn-ghost">👕 Camisetas</a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><i class="fa-solid fa-check-circle"></i> Atualizado hoje</div>
+      <div class="hero-sep"></div>
+      <div class="hero-proof-item"><i class="fa-solid fa-check-circle"></i> Sem frete escondido</div>
+      <div class="hero-sep"></div>
+      <div class="hero-proof-item"><i class="fa-solid fa-check-circle"></i> +1.200 atletas no grupo VIP</div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num fire" id="s-offers">52</div><div class="stat-label">Ofertas Hoje</div></div>
+  <div class="stat"><div class="stat-num">R$130</div><div class="stat-label">Economia Média</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Plataformas Rastreadas</div></div>
+  <div class="stat"><div class="stat-num">1.2k</div><div class="stat-label">Membros VIP</div></div>
+  <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Avaliação Média</div></div>
+</div>
+
+<!-- FLASH SALE BANNER -->
+<div class="flash-banner">
+  <div class="flash-left">
+    <div class="flash-icon">⚡</div>
+    <div class="flash-text">
+      <h3>Oferta Relâmpago do Dia</h3>
+      <p>Kimono Combat Lite A2 com 44% OFF — só enquanto durar o estoque</p>
+    </div>
+  </div>
+  <div class="flash-right">
+    <div class="flash-timer-blocks">
+      <div class="timer-block"><div class="tnum" id="fh">00</div><div class="tlbl">Hrs</div></div>
+      <div class="timer-block"><div class="tnum" id="fm">00</div><div class="tlbl">Min</div></div>
+      <div class="timer-block"><div class="tnum" id="fs">00</div><div class="tlbl">Seg</div></div>
+    </div>
+    <a href="#" class="btn-fire" style="font-size:14px;padding:14px 28px">Garantir Agora</a>
+  </div>
+</div>
+
+<!-- RADAR DE OFERTAS -->
+<div class="sec" id="ofertas">
+  <div class="sec-hd">
+    <h2>Radar de <span style="color:var(--cyan)">Ofertas</span></h2>
+    <div class="line"></div>
+    <a href="#">Ver todas <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+  <div class="cat-nav">
+    <button class="cat-btn active" onclick="filterMain('todos',this)">Todos</button>
+    <button class="cat-btn" onclick="filterMain('kimono',this)">🥋 Kimonos</button>
+    <button class="cat-btn" onclick="filterMain('nogi',this)">👕 No-Gi</button>
+    <button class="cat-btn" onclick="filterMain('capoeira',this)">🎽 Capoeira</button>
+    <button class="cat-btn" onclick="filterMain('acessorio',this)">🎒 Acessórios</button>
+  </div>
+  <div class="grid" id="main-grid"></div>
+</div>
+
+<!-- SUPLEMENTOS -->
+<section class="supl-section" id="suplementos">
+  <div class="supl-inner">
+    <div class="supl-header">
+      <div class="eyebrow">💊 Seção Exclusiva</div>
+      <h2>Suplementos para<br><span style="color:var(--purple)">Quem Treina de Verdade</span></h2>
+      <p>Creatina, Whey, Pré-treino e muito mais. Garimpo semanal com os melhores preços do mercado.</p>
+    </div>
+
+    <!-- Featured Supplement -->
+    <div class="supl-featured">
+      <div class="supl-feat-text">
+        <div class="tag-new">🏆 Mais Vendido da Semana</div>
+        <h3>Kit Performance<br><span style="color:var(--purple)">Completo</span></h3>
+        <p>Whey Protein 900g + Creatina 300g + Pré-Treino 200g. O trio que todo atleta de artes marciais precisa para treinar no limite e recuperar mais rápido.</p>
+        <ul class="supl-feat-perks">
+          <li><i class="fa-solid fa-check"></i> Whey com 24g de proteína por dose</li>
+          <li><i class="fa-solid fa-check"></i> Creatina Monohidratada pura 99.9%</li>
+          <li><i class="fa-solid fa-check"></i> Pré-treino sem overdose de cafeína</li>
+          <li><i class="fa-solid fa-check"></i> Frete grátis para todo o Brasil</li>
+        </ul>
+        <div class="supl-feat-price">
+          <span class="sfp-from">De R$ 340,00</span>
+          <span class="sfp-price">R$ <em>189,90</em></span>
+        </div>
+        <a href="#" class="btn-cyan">Garantir Kit Agora <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="supl-feat-img">
+        <img src="https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=600" alt="Kit Suplementos">
+      </div>
+    </div>
+
+    <!-- Supplement Tabs -->
+    <div class="supl-tabs">
+      <button class="supl-tab active" onclick="filterSupl('todos',this)">Todos</button>
+      <button class="supl-tab" onclick="filterSupl('proteina',this)">🥛 Proteína</button>
+      <button class="supl-tab" onclick="filterSupl('creatina',this)">💪 Creatina</button>
+      <button class="supl-tab" onclick="filterSupl('pretreino',this)">⚡ Pré-treino</button>
+      <button class="supl-tab" onclick="filterSupl('vitamina',this)">🌿 Vitaminas</button>
+      <button class="supl-tab" onclick="filterSupl('recuperacao',this)">🔄 Recuperação</button>
+    </div>
+    <div class="grid-4" id="supl-grid"></div>
+  </div>
+</section>
+
+<!-- EMOTIONAL BREAK -->
+<div class="emotion-section">
+  <p class="big-q">Você treina duro.<br><span style="color:var(--cyan)">Seu equipamento</span><br>precisa acompanhar.</p>
+  <p>Não tem nada pior do que estar no limite do treino com um kimono pesado, um rashguard que encolheu ou um suplemento que custou o dobro do que deveria. A gente resolve isso por você.</p>
+  <a href="#grupo" class="btn-fire">Entrar no Grupo VIP Gratuito <i class="fa-brands fa-whatsapp"></i></a>
+</div>
+
+<!-- KIMONOS EM DESTAQUE -->
+<div class="sec" id="kimonos-sec">
+  <div class="sec-hd">
+    <h2>Kimonos em <span style="color:var(--cyan)">Destaque</span></h2>
+    <div class="line"></div>
+  </div>
+  <div class="grid" id="kimono-grid"></div>
+</div>
+
+<!-- NO-GI -->
+<div class="sec" id="nogi-sec" style="padding-top:0">
+  <div class="sec-hd">
+    <h2>No-Gi & <span style="color:var(--cyan)">Rashguard</span></h2>
+    <div class="line"></div>
+  </div>
+  <div class="grid" id="nogi-grid"></div>
+</div>
+
+<!-- CAMISETAS -->
+<section class="own-section" id="camisetas">
+  <div class="own-inner">
+    <div class="own-grid">
+      <div>
+        <div class="own-eyebrow"><i class="fa-solid fa-fire"></i> Feitas à mão · Tiragem limitada</div>
+        <h2 class="own-title">Camisetas<br><span style="color:var(--gold)">Exclusivas</span><br>BJJ & Capoeira</h2>
+        <p class="own-desc">Produzidas artesanalmente por quem treina, para quem treina. Designs com a identidade real do tatame — sem clichê, sem genérico.</p>
+        <ul class="own-perks">
+          <li><i class="fa-solid fa-check"></i> 100% algodão 30.1 penteado premium</li>
+          <li><i class="fa-solid fa-check"></i> Serigrafia de alta durabilidade — não desbota</li>
+          <li><i class="fa-solid fa-check"></i> Tiragem limitada — cada design tem poucos exemplares</li>
+          <li><i class="fa-solid fa-check"></i> Enviado via Mercado Livre em até 5 dias úteis</li>
+          <li><i class="fa-solid fa-check"></i> Membros VIP têm 10% de desconto sempre</li>
+        </ul>
+        <a href="#" class="btn-cyan" style="display:inline-flex">Ver Coleção Completa <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="shirts-showcase">
+        <div class="shirt-card"><div class="shirt-img"><i class="fa-solid fa-shirt"></i><span>BJJ Edition</span></div><div class="shirt-info"><div class="shirt-name">Mata Leão — Preta</div><div class="shirt-price">R$89<span>P/M/G/GG</span></div></div></div>
+        <div class="shirt-card"><div class="shirt-img"><i class="fa-solid fa-shirt"></i><span>Capoeira Ed.</span></div><div class="shirt-info"><div class="shirt-name">Ginga — Off White</div><div class="shirt-price">R$89<span>P/M/G/GG</span></div></div></div>
+        <div class="shirt-card"><div class="shirt-img"><i class="fa-solid fa-shirt"></i><span>Guard Pass Ed.</span></div><div class="shirt-info"><div class="shirt-name">Guard Pass — Chumbo</div><div class="shirt-price">R$89<span>P/M/G/GG</span></div></div></div>
+        <div class="shirt-card"><div class="shirt-img"><i class="fa-solid fa-shirt"></i><span>Berimbau Ed.</span></div><div class="shirt-info"><div class="shirt-name">Berimbau — Preta</div><div class="shirt-price">R$89<span>P/M/G/GG</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="sp-strip">
+  <div class="sp-item"><div class="sp-num">4.9</div><div class="sp-stars">★★★★★</div><div class="sp-label">Avaliação média</div></div>
+  <div class="sp-item"><div class="sp-num">+850</div><div class="sp-label">Pedidos entregues</div></div>
+  <div class="sp-item"><div class="sp-num">+1.2k</div><div class="sp-label">Atletas no grupo VIP</div></div>
+  <div class="sp-item"><div class="sp-num">R$130</div><div class="sp-label">Economia média por compra</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section" id="como-funciona">
+  <div class="sec-hd">
+    <h2>Como <span style="color:var(--cyan)">Funciona</span></h2>
+    <div class="line"></div>
+  </div>
+  <div class="how-grid">
+    <div class="how-step"><div class="step-num">01</div><div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div><div class="step-title">Garimpo Diário</div><p class="step-desc">Vasculhamos Shopee e ML todo dia procurando as melhores ofertas para atletas de artes marciais.</p></div>
+    <div class="how-step"><div class="step-num">02</div><div class="step-icon"><i class="fa-solid fa-filter"></i></div><div class="step-title">Curadoria Real</div><p class="step-desc">Filtramos por qualidade, avaliações reais e custo-benefício verdadeiro. Nada de lixo barato aqui.</p></div>
+    <div class="how-step"><div class="step-num">03</div><div class="step-icon"><i class="fa-solid fa-bolt"></i></div><div class="step-title">VIP Primeiro</div><p class="step-desc">As melhores ofertas chegam primeiro no grupo VIP do WhatsApp — antes de qualquer concorrente.</p></div>
+    <div class="how-step"><div class="step-num">04</div><div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="step-title">Compra Segura</div><p class="step-desc">Você compra direto no ML ou Shopee, com toda segurança dessas plataformas. Sem intermediário.</p></div>
+  </div>
+</div>
+
+<!-- VIP -->
+<div class="vip-section" id="grupo">
+  <div class="vip-box">
+    <h3>Entre na <span style="color:var(--green)">Alcateia VIP</span></h3>
+    <p>Mais de 1.200 atletas já recebem as melhores ofertas <strong>antes de qualquer um</strong>. Bugs de preço, promoções secretas e desconto exclusivo nas camisetas. Gratuito.</p>
+    <div class="vip-perks">
+      <div class="vip-perk"><i class="fa-solid fa-check-circle"></i> Alertas antecipados</div>
+      <div class="vip-perk"><i class="fa-solid fa-check-circle"></i> Bugs de preço exclusivos</div>
+      <div class="vip-perk"><i class="fa-solid fa-check-circle"></i> 10% off nas camisetas</div>
+      <div class="vip-perk"><i class="fa-solid fa-check-circle"></i> Sem spam</div>
+      <div class="vip-perk"><i class="fa-solid fa-check-circle"></i> 100% gratuito</div>
+    </div>
+    <a href="#" class="btn-fire" style="font-size:17px;padding:18px 52px">Entrar Agora <i class="fa-brands fa-whatsapp" style="font-size:20px"></i></a>
+    <p style="margin-top:16px;font-size:12px;color:var(--dim);position:relative;z-index:1">+1.200 atletas já entraram · Não perca as próximas ofertas</p>
+  </div>
+</div>
+
+<!-- AFFILIATE NOTE -->
+<div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 40px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <div>
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;margin-bottom:4px">Transparência total <span style="color:var(--cyan)">sempre</span></p>
+      <p style="font-size:13px;color:var(--muted)">Usamos links de afiliado do ML e Shopee. Você paga o mesmo preço — nós recebemos uma comissão da plataforma. Simples assim.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-shrink:0">
+      <span style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);border-radius:4px;padding:6px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan)">Curadoria Independente</span>
+      <span style="background:rgba(0,224,150,0.08);border:1px solid rgba(0,224,150,0.2);border-radius:4px;padding:6px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green)">Sem viés comercial</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="font-size:22px;text-decoration:none;color:var(--text)"><i class="fa-solid fa-shield-halved" style="color:var(--cyan);font-size:18px"></i>BLACK<span style="color:var(--cyan)">BEAR</span> BJJ</a>
+        <p>Curadoria independente de ofertas para atletas de BJJ e Capoeira. Sem anúncio pago. Sem produto ruim.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Equipamentos</h4>
+        <ul>
+          <li><a href="#">Kimonos</a></li>
+          <li><a href="#">No-Gi & Rashguard</a></li>
+          <li><a href="#">Fightshorts</a></li>
+          <li><a href="#">Capoeira</a></li>
+          <li><a href="#">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suplementos</h4>
+        <ul>
+          <li><a href="#">Whey Protein</a></li>
+          <li><a href="#">Creatina</a></li>
+          <li><a href="#">Pré-treino</a></li>
+          <li><a href="#">Vitaminas</a></li>
+          <li><a href="#">Recuperação</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Black Bear</h4>
+        <ul>
+          <li><a href="#">Camisetas Exclusivas</a></li>
+          <li><a href="#">Grupo VIP</a></li>
+          <li><a href="#">Como Funciona</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Black Bear BJJ · Curadoria independente · Links de afiliado</span>
+      <span>Feito com 🥋 por praticantes, para praticantes</span>
+    </div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div id="popup">
+  <div class="popup-dot"></div>
+  <div id="popup-text" style="color:var(--muted);line-height:1.4"></div>
+</div>
+
+<script>
+// ── TIMERS ──
+function pad(n){return n.toString().padStart(2,'0')}
+function startCountdown(totalSec,displayEl){
+  let t=totalSec;
+  function tick(){
+    const h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
+    if(displayEl.id==='main-timer'){displayEl.textContent=pad(h)+':'+pad(m)+':'+pad(s)}
+    else{document.getElementById('fh').textContent=pad(h);document.getElementById('fm').textContent=pad(m);document.getElementById('fs').textContent=pad(s)}
+    if(--t<0)t=totalSec;
+  }
+  tick();setInterval(tick,1000);
+}
+startCountdown(9743,document.getElementById('main-timer'));
+startCountdown(6210,{id:'flash'});
+
+// ── DATA ──
+const mainOffers=[
+  {id:1,cat:'kimono',platform:'ml',title:'Kimono Combat Lite A1/A2 — Jiu-Jitsu',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:520,price:289,discount:44,rating:4.8,reviews:312,installment:'12x R$28',stock:7,hot:true},
+  {id:2,cat:'kimono',platform:'ml',title:'Kimono Competição Leve A2/A3 Adulto',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:680,price:349,discount:49,rating:4.9,reviews:187,installment:'12x R$33',stock:12,hot:false},
+  {id:3,cat:'nogi',platform:'shopee',title:'Rashguard Manga Longa Compressão BJJ',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:180,price:89,discount:51,rating:4.6,reviews:94,installment:'3x R$29,66',stock:23,hot:true},
+  {id:4,cat:'nogi',platform:'ml',title:'Fightshorts MMA/BJJ Masculino',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:220,price:119,discount:46,rating:4.7,reviews:156,installment:'6x R$19,83',stock:18,hot:false},
+  {id:5,cat:'capoeira',platform:'shopee',title:'Abadá Capoeira 100% Algodão Reforçado',img:'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=400',from:95,price:59,discount:38,rating:4.5,reviews:78,installment:'2x R$29,50',stock:30,hot:false},
+  {id:6,cat:'acessorio',platform:'ml',title:'Mochila Tática 45L — Compartimento Kimono',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:299,price:187,discount:37,rating:4.8,reviews:441,installment:'6x R$31,17',stock:9,hot:true},
+  {id:7,cat:'acessorio',platform:'ml',title:'Protetor Bucal Double Guard Moldável',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:80,price:42,discount:47,rating:4.5,reviews:88,installment:'2x R$21',stock:35,hot:false},
+  {id:8,cat:'nogi',platform:'shopee',title:'Legging Compressão Feminina BJJ/Yoga',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:140,price:78,discount:44,rating:4.9,reviews:267,installment:'3x R$26',stock:14,hot:false},
+];
+
+const suplOffers=[
+  {id:101,cat:'proteina',platform:'shopee',title:'Whey Protein Concentrado 900g — Chocolate',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:189,price:109,discount:42,rating:4.8,reviews:534,installment:'3x R$36,33',macro:'24g prot/dose',stock:20},
+  {id:102,cat:'creatina',platform:'ml',title:'Creatina Monohidratada Pura 300g 99.9%',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:89,price:54,discount:39,rating:4.9,reviews:892,installment:'2x R$27',macro:'3g/dose',stock:8,hot:true},
+  {id:103,cat:'pretreino',platform:'shopee',title:'Pré-treino Explosion 200g — sem overdose',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:120,price:72,discount:40,rating:4.6,reviews:213,installment:'2x R$36',macro:'200mg cafeína',stock:15},
+  {id:104,cat:'proteina',platform:'ml',title:'Whey Isolado 900g — Baunilha premium',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:299,price:189,discount:37,rating:4.7,reviews:341,installment:'6x R$31,50',macro:'27g prot/dose',stock:22},
+  {id:105,cat:'vitamina',platform:'shopee',title:'Vitamina D3 + K2 60 cápsulas',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:65,price:38,discount:42,rating:4.8,reviews:187,installment:'2x R$19',macro:'2000ui D3',stock:50},
+  {id:106,cat:'recuperacao',platform:'ml',title:'BCAA 2:1:1 instantâneo 250g',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:79,price:48,discount:39,rating:4.5,reviews:156,installment:'2x R$24',macro:'6g/dose',stock:28},
+  {id:107,cat:'creatina',platform:'shopee',title:'Creatina HCL 120 cápsulas',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:110,price:64,discount:42,rating:4.7,reviews:98,installment:'2x R$32',macro:'750mg/cáps',stock:11},
+  {id:108,cat:'recuperacao',platform:'ml',title:'Glutamina 300g — recuperação muscular',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:95,price:59,discount:38,rating:4.6,reviews:203,installment:'2x R$29,50',macro:'5g/dose',stock:33},
+];
+
+function platBadge(p){
+  if(p==='ml')return'<span class="plat plat-ml"><i class="fa-solid fa-tag"></i> Mercado Livre</span>';
+  if(p==='shopee')return'<span class="plat plat-shopee"><i class="fa-solid fa-tag"></i> Shopee</span>';
+  return'<span class="plat plat-own"><i class="fa-solid fa-shirt"></i> Exclusivo</span>';
+}
+function stars(r){return'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(r))}
+function save(from,price){return'R$'+Math.round(from-price).toLocaleString('pt-BR')+' economizados'}
+function stockBar(n,max=40){const pct=Math.min(100,Math.round((1-n/max)*100));return`<div class="ostock-bar"><div class="ostock-fill" style="width:${pct}%"></div></div>`}
+
+function renderOffer(o){
+  const hot=o.hot?'ocard-hot':'';
+  return`<div class="ocard ${hot}" data-cat="${o.cat}">
+    <div class="oimg">
+      <img src="${o.img}" alt="${o.title}" loading="lazy">
+      <div class="obadges">${platBadge(o.platform)}</div>
+      <div class="odiscount">−${o.discount}%</div>
+      ${o.stock<=15?`<div class="ostock"><i class="fa-solid fa-fire"></i> Restam apenas ${o.stock} unidades!</div>`:''}
+    </div>
+    <div class="obody">
+      <div class="otitle">${o.title}</div>
+      <div class="orating">${stars(o.rating)}<span>${o.rating} (${o.reviews})</span></div>
+      <div class="oprice-block">
+        <div class="ofrom">De R$ ${o.from.toFixed(2).replace('.',',')}</div>
+        <div class="oprice">R$ <em>${o.price.toFixed(2).replace('.',',')}</em></div>
+        <div class="oinst">ou ${o.installment} sem juros</div>
+        <div class="osave">✓ ${save(o.from,o.price)}</div>
+      </div>
+      ${stockBar(o.stock)}
+      <a href="#" class="obtn obtn-red">Ver Oferta <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>`;
+}
+
+function renderSupl(o){
+  return`<div class="scard" data-cat="${o.cat}">
+    <div class="scard-img">
+      <img src="${o.img}" alt="${o.title}" loading="lazy">
+      <div class="scard-badge">−${o.discount}%</div>
+    </div>
+    <div class="scard-body">
+      <span class="scard-tag">💊 ${o.cat.charAt(0).toUpperCase()+o.cat.slice(1)}</span>
+      <div class="scard-title">${o.title}</div>
+      <div class="scard-macros"><span class="scard-macro">${o.macro}</span><span class="scard-macro">${platBadge(o.platform).replace(/class="plat [^"]+"/,'').replace(/<\/?span[^>]*>/g,'').trim()}</span></div>
+      <div class="orating">${stars(o.rating)}<span style="color:var(--muted)">${o.rating} (${o.reviews})</span></div>
+      <div class="oprice-block">
+        <div class="scard-from">De R$ ${o.from.toFixed(2).replace('.',',')}</div>
+        <div class="scard-price">R$ <em>${o.price.toFixed(2).replace('.',',')}</em></div>
+        <div class="oinst">ou ${o.installment} sem juros</div>
+        <div class="scard-save">✓ ${save(o.from,o.price)}</div>
+      </div>
+      ${o.stock&&o.stock<=15?`<div style="font-size:11px;color:var(--red);font-weight:700;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em"><i class="fa-solid fa-fire"></i> Restam ${o.stock} unidades</div>`:''}
+      <a href="#" class="scard-btn">Garantir Oferta <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>`;
+}
+
+// Render
+document.getElementById('main-grid').innerHTML=mainOffers.map(renderOffer).join('');
+document.getElementById('kimono-grid').innerHTML=mainOffers.filter(o=>o.cat==='kimono').map(renderOffer).join('');
+document.getElementById('nogi-grid').innerHTML=mainOffers.filter(o=>o.cat==='nogi').map(renderOffer).join('');
+document.getElementById('supl-grid').innerHTML=suplOffers.map(renderSupl).join('');
+
+// Filters
+function filterMain(cat,btn){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#main-grid .ocard').forEach(c=>{
+    c.style.display=(cat==='todos'||c.dataset.cat===cat)?'':'none';
+  });
+}
+function filterSupl(cat,btn){
+  document.querySelectorAll('.supl-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#supl-grid .scard').forEach(c=>{
+    c.style.display=(cat==='todos'||c.dataset.cat===cat)?'':'none';
+  });
+}
+
+// Popup
+const nomes=['Marco S.','Arthur R.','Davi L.','Guto P.','Felipe M.','Rodrigo T.','Camila F.','Bruno K.'];
+const acoes=[
+  'acabou de garantir o Kimono Combat 🥋',
+  'comprou o Kit Creatina + Pré-treino 💊',
+  'entrou no Grupo VIP agora ⚡',
+  'pediu a Camiseta Mata Leão 👕',
+  'garantiu a Mochila Tática 45L 🎒',
+  'aproveitou o Whey a R$109 🥛',
+  'comprou o Rashguard −51% 🔥',
+];
+function showPopup(){
+  const nome=nomes[Math.floor(Math.random()*nomes.length)];
+  const acao=acoes[Math.floor(Math.random()*acoes.length)];
+  document.getElementById('popup-text').innerHTML=`<strong style="color:var(--text)">${nome}</strong><br>${acao}`;
+  const p=document.getElementById('popup');
+  p.classList.add('show');
+  setTimeout(()=>p.classList.remove('show'),5000);
+}
+setTimeout(showPopup,2500);
+setInterval(showPopup,14000);
+</script>
+</body>
+</html>
