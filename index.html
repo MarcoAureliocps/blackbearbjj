@@ -390,8 +390,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 40p
     <button class="cat-btn active" onclick="filterMain('todos',this)">Todos</button>
     <button class="cat-btn" onclick="filterMain('kimono',this)">🥋 Kimonos</button>
     <button class="cat-btn" onclick="filterMain('nogi',this)">👕 No-Gi</button>
+    <button class="cat-btn" onclick="filterMain('acessorio',this)">🥊 Faixas & Acessórios</button>
     <button class="cat-btn" onclick="filterMain('capoeira',this)">🎽 Capoeira</button>
-    <button class="cat-btn" onclick="filterMain('acessorio',this)">🎒 Acessórios</button>
   </div>
   <div class="grid" id="main-grid"></div>
 </div>
@@ -431,11 +431,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 40p
     <!-- Supplement Tabs -->
     <div class="supl-tabs">
       <button class="supl-tab active" onclick="filterSupl('todos',this)">Todos</button>
-      <button class="supl-tab" onclick="filterSupl('proteina',this)">🥛 Proteína</button>
+      <button class="supl-tab" onclick="filterSupl('proteina',this)">🥛 Whey</button>
       <button class="supl-tab" onclick="filterSupl('creatina',this)">💪 Creatina</button>
       <button class="supl-tab" onclick="filterSupl('pretreino',this)">⚡ Pré-treino</button>
       <button class="supl-tab" onclick="filterSupl('vitamina',this)">🌿 Vitaminas</button>
       <button class="supl-tab" onclick="filterSupl('recuperacao',this)">🔄 Recuperação</button>
+      <button class="supl-tab" onclick="filterSupl('alimentacao',this)">🍫 Alimentação</button>
+      <button class="supl-tab" onclick="filterSupl('acessorio_treino',this)">🏋️ Acessórios</button>
     </div>
     <div class="grid-4" id="supl-grid"></div>
   </div>
@@ -614,27 +616,119 @@ function startCountdown(totalSec,displayEl){
 startCountdown(9743,document.getElementById('main-timer'));
 startCountdown(6210,{id:'flash'});
 
-// ── DATA ──
+// ── EQUIPAMENTOS ──
 const mainOffers=[
-  {id:1,cat:'kimono',platform:'ml',title:'Kimono Combat Lite A1/A2 — Jiu-Jitsu',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:520,price:289,discount:44,rating:4.8,reviews:312,installment:'12x R$28',stock:7,hot:true},
-  {id:2,cat:'kimono',platform:'ml',title:'Kimono Competição Leve A2/A3 Adulto',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:680,price:349,discount:49,rating:4.9,reviews:187,installment:'12x R$33',stock:12,hot:false},
-  {id:3,cat:'nogi',platform:'shopee',title:'Rashguard Manga Longa Compressão BJJ',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:180,price:89,discount:51,rating:4.6,reviews:94,installment:'3x R$29,66',stock:23,hot:true},
-  {id:4,cat:'nogi',platform:'ml',title:'Fightshorts MMA/BJJ Masculino',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:220,price:119,discount:46,rating:4.7,reviews:156,installment:'6x R$19,83',stock:18,hot:false},
-  {id:5,cat:'capoeira',platform:'shopee',title:'Abadá Capoeira 100% Algodão Reforçado',img:'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=400',from:95,price:59,discount:38,rating:4.5,reviews:78,installment:'2x R$29,50',stock:30,hot:false},
-  {id:6,cat:'acessorio',platform:'ml',title:'Mochila Tática 45L — Compartimento Kimono',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:299,price:187,discount:37,rating:4.8,reviews:441,installment:'6x R$31,17',stock:9,hot:true},
-  {id:7,cat:'acessorio',platform:'ml',title:'Protetor Bucal Double Guard Moldável',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:80,price:42,discount:47,rating:4.5,reviews:88,installment:'2x R$21',stock:35,hot:false},
-  {id:8,cat:'nogi',platform:'shopee',title:'Legging Compressão Feminina BJJ/Yoga',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:140,price:78,discount:44,rating:4.9,reviews:267,installment:'3x R$26',stock:14,hot:false},
+  // KIMONOS ML
+  {id:1,cat:'kimono',platform:'ml',title:'Kimono BJJ Completo com Faixa Incluída',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:520,price:289,discount:44,rating:4.8,reviews:312,installment:'12x R$28',stock:7,hot:true,link:'https://meli.la/2Cu6vGH'},
+  {id:2,cat:'kimono',platform:'ml',title:'Kimono Infantil BJJ — Jiu-Jitsu Kids',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:320,price:189,discount:41,rating:4.9,reviews:187,installment:'6x R$31,50',stock:12,hot:false,link:'https://meli.la/2p42gM4'},
+  {id:3,cat:'kimono',platform:'ml',title:'Faixa Branca Adulto — BJJ Oficial',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:60,price:35,discount:42,rating:4.7,reviews:234,installment:'2x R$17,50',stock:23,hot:false,link:'https://meli.la/15kX1w1'},
+  // KIMONOS SHOPEE
+  {id:4,cat:'kimono',platform:'shopee',title:'Kimono BJJ Premium — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:399,price:219,discount:45,rating:4.8,reviews:521,installment:'6x R$36,50',stock:8,hot:true,link:'https://s.shopee.com.br/6fg1LfPpKJ'},
+  {id:5,cat:'kimono',platform:'shopee',title:'Kimono BJJ Reforçado — Shopee',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:380,price:229,discount:40,rating:4.7,reviews:341,installment:'6x R$38,17',stock:15,hot:false,link:'https://s.shopee.com.br/2VqSO2vF5g'},
+  {id:6,cat:'kimono',platform:'shopee',title:'Kimono BJJ Competição — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:450,price:259,discount:42,rating:4.9,reviews:198,installment:'6x R$43,17',stock:6,hot:true,link:'https://s.shopee.com.br/2g9saMlP7T'},
+  {id:7,cat:'kimono',platform:'shopee',title:'Kimono BJJ Adulto — Shopee',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:360,price:209,discount:42,rating:4.6,reviews:276,installment:'6x R$34,83',stock:20,hot:false,link:'https://s.shopee.com.br/40fGApX7ob'},
+  {id:8,cat:'kimono',platform:'shopee',title:'Kimono BJJ Leve — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:340,price:199,discount:41,rating:4.7,reviews:312,installment:'6x R$33,17',stock:11,hot:false,link:'https://s.shopee.com.br/80BOwGUJWZ'},
+  {id:9,cat:'kimono',platform:'shopee',title:'Kimono BJJ Trançado — Shopee',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:480,price:279,discount:42,rating:4.8,reviews:167,installment:'6x R$46,50',stock:9,hot:false,link:'https://s.shopee.com.br/5VU3yAm4OV'},
+  {id:10,cat:'kimono',platform:'shopee',title:'Kimono BJJ Trançado Premium — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:520,price:299,discount:43,rating:4.9,reviews:143,installment:'6x R$49,83',stock:5,hot:true,link:'https://s.shopee.com.br/2LX2CP6wyu'},
+  {id:11,cat:'kimono',platform:'shopee',title:'Kimono Iniciante BJJ — Shopee',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:280,price:159,discount:43,rating:4.6,reviews:423,installment:'6x R$26,50',stock:30,hot:false,link:'https://s.shopee.com.br/qiEPONNxr'},
+  {id:12,cat:'kimono',platform:'shopee',title:'Kimono Infantil — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:260,price:149,discount:43,rating:4.8,reviews:289,installment:'3x R$49,67',stock:18,hot:false,link:'https://s.shopee.com.br/7VF8LRO9la'},
+  {id:13,cat:'kimono',platform:'shopee',title:'Kimono Infantil Reforçado — Shopee',img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=400',from:240,price:139,discount:42,rating:4.7,reviews:198,installment:'3x R$46,33',stock:22,hot:false,link:'https://s.shopee.com.br/197PsdLyc'},
+  {id:14,cat:'kimono',platform:'shopee',title:'Kimono Infantil Premium — Shopee',img:'https://images.unsplash.com/photo-1564415431636-5dc3bb79099e?q=80&w=400',from:270,price:155,discount:43,rating:4.8,reviews:156,installment:'3x R$51,67',stock:14,hot:false,link:'https://s.shopee.com.br/7AcHx4787J'},
+  // RASHGUARD
+  {id:15,cat:'nogi',platform:'ml',title:'Rashguard Compressão BJJ — ML',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:180,price:89,discount:51,rating:4.8,reviews:312,installment:'3x R$29,67',stock:14,hot:true,link:'https://meli.la/2oEbZPj'},
+  {id:16,cat:'nogi',platform:'ml',title:'Rashguard Manga Longa Performance — ML',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:199,price:109,discount:45,rating:4.7,reviews:198,installment:'3x R$36,33',stock:19,hot:false,link:'https://meli.la/27YGeqE'},
+  {id:17,cat:'nogi',platform:'ml',title:'Kit Rashguard + Short BJJ — ML',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:280,price:159,discount:43,rating:4.9,reviews:421,installment:'6x R$26,50',stock:8,hot:true,link:'https://meli.la/1xD6URf'},
+  {id:18,cat:'nogi',platform:'ml',title:'Kit Shorts BJJ/MMA — ML',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:220,price:129,discount:41,rating:4.6,reviews:167,installment:'3x R$43',stock:25,hot:false,link:'https://meli.la/22z5uie'},
+  {id:19,cat:'nogi',platform:'shopee',title:'Rashguard Compressão — Shopee',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:160,price:79,discount:51,rating:4.7,reviews:534,installment:'2x R$39,50',stock:35,hot:false,link:'https://s.shopee.com.br/W5O0LzxYj'},
+  {id:20,cat:'nogi',platform:'shopee',title:'Rashguard Manga Curta — Shopee',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:150,price:74,discount:51,rating:4.6,reviews:312,installment:'2x R$37',stock:41,hot:false,link:'https://s.shopee.com.br/W5O0UrvNA'},
+  {id:21,cat:'nogi',platform:'shopee',title:'Rashguard Profissional — Shopee',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:189,price:99,discount:48,rating:4.8,reviews:276,installment:'3x R$33',stock:22,hot:true,link:'https://s.shopee.com.br/9fJcvRL8oM'},
+  {id:22,cat:'nogi',platform:'shopee',title:'Rashguard Elite BJJ — Shopee',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:199,price:109,discount:45,rating:4.7,reviews:198,installment:'3x R$36,33',stock:17,hot:false,link:'https://s.shopee.com.br/9fJcvVjmop'},
+  {id:23,cat:'nogi',platform:'shopee',title:'Rashguard Superpromoção — Shopee',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:170,price:79,discount:54,rating:4.9,reviews:612,installment:'2x R$39,50',stock:6,hot:true,link:'https://s.shopee.com.br/2BDbztdEYu'},
+  {id:24,cat:'nogi',platform:'shopee',title:'Short Nogi BJJ — Shopee',img:'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=400',from:140,price:79,discount:44,rating:4.6,reviews:234,installment:'2x R$39,50',stock:28,hot:false,link:'https://s.shopee.com.br/7prykPaxfl'},
+  {id:25,cat:'nogi',platform:'shopee',title:'Calça de Kimono Azul — Shopee',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:120,price:69,discount:43,rating:4.5,reviews:187,installment:'2x R$34,50',stock:33,hot:false,link:'https://s.shopee.com.br/8V7fXYr4zR'},
+  {id:26,cat:'nogi',platform:'shopee',title:'Camiseta de Treino BJJ — Shopee',img:'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=400',from:89,price:49,discount:45,rating:4.6,reviews:312,installment:'2x R$24,50',stock:45,hot:false,link:'https://s.shopee.com.br/9fJcvj0fgK'},
+  // FAIXAS
+  {id:27,cat:'acessorio',platform:'shopee',title:'Faixa BJJ Bordada — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:89,price:49,discount:45,rating:4.9,reviews:456,installment:'2x R$24,50',stock:25,hot:false,link:'https://s.shopee.com.br/70IrkeSBqb'},
+  {id:28,cat:'acessorio',platform:'shopee',title:'Faixa BJJ Adulto — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:70,price:39,discount:44,rating:4.8,reviews:312,installment:'2x R$19,50',stock:40,hot:false,link:'https://s.shopee.com.br/40fGB9m0T4'},
+  {id:29,cat:'acessorio',platform:'shopee',title:'Faixa BJJ Reforçada — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:80,price:44,discount:45,rating:4.7,reviews:198,installment:'2x R$22',stock:30,hot:false,link:'https://s.shopee.com.br/197PpIQhP'},
+  {id:30,cat:'acessorio',platform:'shopee',title:'Faixa Infantil BJJ — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:60,price:34,discount:43,rating:4.8,reviews:167,installment:'2x R$17',stock:35,hot:false,link:'https://s.shopee.com.br/6L3AxU1kiT'},
+  {id:31,cat:'acessorio',platform:'shopee',title:'Faixa BJJ Oficial — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:75,price:42,discount:44,rating:4.7,reviews:234,installment:'2x R$21',stock:28,hot:false,link:'https://s.shopee.com.br/4fuwyjNWLt'},
+  {id:32,cat:'acessorio',platform:'shopee',title:'Faixa Infantil Premium — Shopee',img:'https://images.unsplash.com/photo-1536922645893-a64893ac17a9?q=80&w=400',from:65,price:37,discount:43,rating:4.8,reviews:143,installment:'2x R$18,50',stock:32,hot:false,link:'https://s.shopee.com.br/9fJcvwyB6U'},
+  // ACESSÓRIOS
+  {id:33,cat:'acessorio',platform:'ml',title:'Kit 12 Tatames de EVA — Academia em Casa',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:380,price:219,discount:42,rating:4.8,reviews:445,installment:'6x R$36,50',stock:9,hot:true,link:'https://meli.la/23u9bXK'},
+  {id:34,cat:'acessorio',platform:'ml',title:'Protetor Bucal Double Guard Moldável',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:80,price:42,discount:47,rating:4.5,reviews:88,installment:'2x R$21',stock:35,hot:false,link:'https://meli.la/2424ieM'},
+  {id:35,cat:'acessorio',platform:'ml',title:'Bolsa de Compressa Gel Frio/Quente',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:120,price:69,discount:43,rating:4.6,reviews:178,installment:'2x R$34,50',stock:22,hot:false,link:'https://meli.la/1YxkgJ1'},
+  {id:36,cat:'acessorio',platform:'ml',title:'Capacete de Luta — Proteção Completa',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:199,price:119,discount:40,rating:4.7,reviews:234,installment:'3x R$39,67',stock:16,hot:false,link:'https://meli.la/1HCxHKM'},
+  {id:37,cat:'acessorio',platform:'ml',title:'Suporte de Parede para Kimono/Faixa',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:149,price:87,discount:42,rating:4.8,reviews:312,installment:'3x R$29',stock:18,hot:false,link:'https://meli.la/2S2Tju9'},
+  {id:38,cat:'acessorio',platform:'shopee',title:'Suporte de Parede para Faixa — Shopee',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:139,price:79,discount:43,rating:4.7,reviews:267,installment:'2x R$39,50',stock:24,hot:false,link:'https://s.shopee.com.br/2g9saWMSwG'},
+  {id:39,cat:'acessorio',platform:'shopee',title:'Porta-Medalhas BJJ — Shopee',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:89,price:49,discount:45,rating:4.8,reviews:198,installment:'2x R$24,50',stock:30,hot:false,link:'https://s.shopee.com.br/80BOwP00N4'},
+  {id:40,cat:'acessorio',platform:'shopee',title:'Fita para Dedo BJJ — Shopee',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:39,price:19,discount:51,rating:4.7,reviews:534,installment:'à vista',stock:60,hot:false,link:'https://s.shopee.com.br/111ebs8PQu'},
+  {id:41,cat:'acessorio',platform:'shopee',title:'Joelheira Compressão BJJ — Shopee',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:89,price:49,discount:45,rating:4.6,reviews:312,installment:'2x R$24,50',stock:28,hot:false,link:'https://s.shopee.com.br/8fR5k9aNKW'},
+  {id:42,cat:'acessorio',platform:'shopee',title:'Joelheira Performance — Shopee',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:99,price:57,discount:42,rating:4.7,reviews:198,installment:'2x R$28,50',stock:20,hot:false,link:'https://s.shopee.com.br/8AUp9G7uTc'},
+  {id:43,cat:'acessorio',platform:'shopee',title:'Joelheira Pro BJJ — Shopee',img:'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=400',from:110,price:64,discount:42,rating:4.8,reviews:156,installment:'2x R$32',stock:15,hot:false,link:'https://s.shopee.com.br/80BOwyPSpQ'},
+  {id:44,cat:'acessorio',platform:'shopee',title:'Suporte para Faixa — Shopee',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400',from:119,price:69,discount:42,rating:4.7,reviews:143,installment:'2x R$34,50',stock:22,hot:false,link:'https://s.shopee.com.br/2g9sazreHQ'},
 ];
 
 const suplOffers=[
-  {id:101,cat:'proteina',platform:'shopee',title:'Whey Protein Concentrado 900g — Chocolate',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:189,price:109,discount:42,rating:4.8,reviews:534,installment:'3x R$36,33',macro:'24g prot/dose',stock:20},
-  {id:102,cat:'creatina',platform:'ml',title:'Creatina Monohidratada Pura 300g 99.9%',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:89,price:54,discount:39,rating:4.9,reviews:892,installment:'2x R$27',macro:'3g/dose',stock:8,hot:true},
-  {id:103,cat:'pretreino',platform:'shopee',title:'Pré-treino Explosion 200g — sem overdose',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:120,price:72,discount:40,rating:4.6,reviews:213,installment:'2x R$36',macro:'200mg cafeína',stock:15},
-  {id:104,cat:'proteina',platform:'ml',title:'Whey Isolado 900g — Baunilha premium',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:299,price:189,discount:37,rating:4.7,reviews:341,installment:'6x R$31,50',macro:'27g prot/dose',stock:22},
-  {id:105,cat:'vitamina',platform:'shopee',title:'Vitamina D3 + K2 60 cápsulas',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:65,price:38,discount:42,rating:4.8,reviews:187,installment:'2x R$19',macro:'2000ui D3',stock:50},
-  {id:106,cat:'recuperacao',platform:'ml',title:'BCAA 2:1:1 instantâneo 250g',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:79,price:48,discount:39,rating:4.5,reviews:156,installment:'2x R$24',macro:'6g/dose',stock:28},
-  {id:107,cat:'creatina',platform:'shopee',title:'Creatina HCL 120 cápsulas',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:110,price:64,discount:42,rating:4.7,reviews:98,installment:'2x R$32',macro:'750mg/cáps',stock:11},
-  {id:108,cat:'recuperacao',platform:'ml',title:'Glutamina 300g — recuperação muscular',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:95,price:59,discount:38,rating:4.6,reviews:203,installment:'2x R$29,50',macro:'5g/dose',stock:33},
+  // CREATINA
+  {id:101,cat:'creatina',platform:'ml',title:'Creatina Growth Supplements',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:89,price:54,discount:39,rating:4.9,reviews:892,installment:'2x R$27',macro:'3g/dose',stock:8,hot:true,link:'https://meli.la/21eHX3f'},
+  {id:102,cat:'creatina',platform:'ml',title:'Creatina — Promoção do Dia',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:79,price:44,discount:44,rating:4.8,reviews:534,installment:'2x R$22',macro:'5g/dose',stock:12,hot:true,link:'https://meli.la/2wRCt7i'},
+  {id:103,cat:'creatina',platform:'ml',title:'Creatina Monohidratada Premium',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:95,price:58,discount:39,rating:4.7,reviews:312,installment:'2x R$29',macro:'3g/dose',stock:20,hot:false,link:'https://meli.la/2t7EJLJ'},
+  {id:104,cat:'creatina',platform:'ml',title:'Creatina em Cápsulas — Prático',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:99,price:59,discount:40,rating:4.8,reviews:267,installment:'2x R$29,50',macro:'3g/cáps',stock:15,hot:false,link:'https://meli.la/11tDwbA'},
+  {id:105,cat:'creatina',platform:'ml',title:'Creatina Max — Alta Concentração',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:110,price:65,discount:41,rating:4.9,reviews:198,installment:'2x R$32,50',macro:'5g/dose',stock:10,hot:false,link:'https://meli.la/1WmV19Q'},
+  {id:106,cat:'creatina',platform:'ml',title:'Creatina 100% Pura',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:120,price:69,discount:43,rating:4.8,reviews:156,installment:'2x R$34,50',macro:'5g/dose',stock:18,hot:false,link:'https://meli.la/2HCPS5X'},
+  // WHEY
+  {id:107,cat:'proteina',platform:'ml',title:'Whey Protein Concentrado',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:189,price:109,discount:42,rating:4.8,reviews:612,installment:'3x R$36,33',macro:'24g prot/dose',stock:20,hot:false,link:'https://meli.la/14pwmop'},
+  {id:108,cat:'proteina',platform:'ml',title:'Whey Protein Premium 900g',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:220,price:134,discount:39,rating:4.7,reviews:445,installment:'3x R$44,67',macro:'26g prot/dose',stock:22,hot:false,link:'https://meli.la/1FXi48w'},
+  {id:109,cat:'proteina',platform:'ml',title:'Whey Protein Sabor Chocolate',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:199,price:119,discount:40,rating:4.8,reviews:534,installment:'3x R$39,67',macro:'25g prot/dose',stock:16,hot:true,link:'https://meli.la/1ttAF7a'},
+  {id:110,cat:'proteina',platform:'ml',title:'Whey Protein Isolado Premium',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:299,price:179,discount:40,rating:4.9,reviews:312,installment:'6x R$29,83',macro:'27g prot/dose',stock:14,hot:false,link:'https://meli.la/2XFfKgg'},
+  {id:111,cat:'proteina',platform:'ml',title:'Kit Whey + Creatina Combo',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:320,price:189,discount:41,rating:4.8,reviews:267,installment:'6x R$31,50',macro:'24g prot/dose',stock:9,hot:true,link:'https://meli.la/2ynKxVB'},
+  {id:112,cat:'proteina',platform:'ml',title:'Best Whey Protein — Top Venda',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:249,price:149,discount:40,rating:4.9,reviews:734,installment:'3x R$49,67',macro:'26g prot/dose',stock:11,hot:true,link:'https://meli.la/1HjJzUv'},
+  {id:113,cat:'proteina',platform:'ml',title:'Whey Protein Baunilha 900g',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:229,price:139,discount:39,rating:4.7,reviews:398,installment:'3x R$46,33',macro:'25g prot/dose',stock:17,hot:false,link:'https://meli.la/2HbTKLR'},
+  {id:114,cat:'proteina',platform:'ml',title:'Tasty Whey — Sabores Especiais',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:259,price:154,discount:41,rating:4.8,reviews:312,installment:'3x R$51,33',macro:'25g prot/dose',stock:13,hot:false,link:'https://meli.la/11bgJWe'},
+  {id:115,cat:'proteina',platform:'ml',title:'Whey Protein Zero Lactose',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:279,price:169,discount:39,rating:4.7,reviews:234,installment:'6x R$28,17',macro:'27g prot/dose',stock:19,hot:false,link:'https://meli.la/2AWeeHq'},
+  {id:116,cat:'proteina',platform:'ml',title:'Suplemento Whey Alto Rendimento',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:299,price:189,discount:37,rating:4.7,reviews:341,installment:'6x R$31,50',macro:'27g prot/dose',stock:22,hot:false,link:'https://meli.la/1qzqQCV'},
+  {id:117,cat:'proteina',platform:'ml',title:'Basic Whey Concentrado',img:'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400',from:189,price:109,discount:42,rating:4.8,reviews:534,installment:'3x R$36,33',macro:'24g prot/dose',stock:20,hot:false,link:'https://meli.la/2bosS3D'},
+  {id:118,cat:'proteina',platform:'ml',title:'Hipercalórico — Ganho de Massa',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:199,price:119,discount:40,rating:4.6,reviews:289,installment:'3x R$39,67',macro:'60g carb/dose',stock:24,hot:false,link:'https://meli.la/2DsGGGP'},
+  // PRÉ-TREINO
+  {id:119,cat:'pretreino',platform:'ml',title:'Pré-treino Explosivo — Sem overdose',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:120,price:69,discount:42,rating:4.7,reviews:312,installment:'2x R$34,50',macro:'200mg cafeína',stock:15,hot:false,link:'https://meli.la/1eaLHqT'},
+  {id:120,cat:'pretreino',platform:'ml',title:'Pré-treino Performance Total',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:139,price:82,discount:41,rating:4.8,reviews:234,installment:'2x R$41',macro:'250mg cafeína',stock:18,hot:false,link:'https://meli.la/245Qjte'},
+  {id:121,cat:'pretreino',platform:'ml',title:'Pré-treino Hardcore',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:149,price:88,discount:41,rating:4.6,reviews:198,installment:'2x R$44',macro:'300mg cafeína',stock:12,hot:false,link:'https://meli.la/1i35sCj'},
+  {id:122,cat:'pretreino',platform:'ml',title:'Pré-treino Natural Focus',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:129,price:76,discount:41,rating:4.7,reviews:167,installment:'2x R$38',macro:'150mg cafeína',stock:20,hot:false,link:'https://meli.la/2XJ2AvB'},
+  // VITAMINAS / SAÚDE
+  {id:123,cat:'vitamina',platform:'ml',title:'Multivitamínico Completo 60 caps',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:89,price:52,discount:42,rating:4.8,reviews:445,installment:'2x R$26',macro:'13 vitaminas',stock:35,hot:false,link:'https://meli.la/1VKp7Fo'},
+  {id:124,cat:'vitamina',platform:'ml',title:'Magnésio Quelato 60 caps',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:79,price:46,discount:42,rating:4.7,reviews:312,installment:'2x R$23',macro:'300mg/cáps',stock:28,hot:false,link:'https://meli.la/2Smytmn'},
+  {id:125,cat:'vitamina',platform:'ml',title:'Coenzima Q10 — Energia Celular',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:99,price:58,discount:41,rating:4.8,reviews:198,installment:'2x R$29',macro:'100mg/cáps',stock:22,hot:false,link:'https://meli.la/2zGKoGn'},
+  {id:126,cat:'vitamina',platform:'ml',title:'Coenzima Q10 Premium',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:109,price:64,discount:41,rating:4.7,reviews:156,installment:'2x R$32',macro:'200mg/cáps',stock:18,hot:false,link:'https://meli.la/1RdV3N7'},
+  {id:127,cat:'vitamina',platform:'ml',title:'Óleo de Peixe Ômega 3',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:69,price:40,discount:42,rating:4.8,reviews:534,installment:'2x R$20',macro:'1000mg EPA+DHA',stock:40,hot:false,link:'https://meli.la/1yGC5G8'},
+  {id:128,cat:'vitamina',platform:'ml',title:'Kit Ômega 3 — 3 Meses',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:189,price:112,discount:41,rating:4.9,reviews:312,installment:'3x R$37,33',macro:'1000mg EPA+DHA',stock:15,hot:false,link:'https://meli.la/2UpQhxb'},
+  {id:129,cat:'vitamina',platform:'ml',title:'NAC N-Acetil Cisteína 60 caps',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:89,price:52,discount:42,rating:4.7,reviews:234,installment:'2x R$26',macro:'600mg/cáps',stock:25,hot:false,link:'https://meli.la/1s8UKea'},
+  {id:130,cat:'vitamina',platform:'ml',title:'Suplemento Alimentar NAC',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:95,price:55,discount:42,rating:4.8,reviews:187,installment:'2x R$27,50',macro:'600mg/cáps',stock:30,hot:false,link:'https://meli.la/2ZQSoKk'},
+  {id:131,cat:'vitamina',platform:'ml',title:'Feno Grego — Testosterona Natural',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:79,price:46,discount:42,rating:4.6,reviews:198,installment:'2x R$23',macro:'500mg/cáps',stock:28,hot:false,link:'https://meli.la/2cNg6kt'},
+  {id:132,cat:'vitamina',platform:'ml',title:'Magnésio Dimalato — Sono e Relaxamento',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:85,price:49,discount:42,rating:4.7,reviews:267,installment:'2x R$24,50',macro:'400mg/cáps',stock:22,hot:false,link:'https://meli.la/1wyYLYb'},
+  {id:133,cat:'vitamina',platform:'ml',title:'Testo Boost — Suporte Hormonal',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:149,price:87,discount:42,rating:4.6,reviews:156,installment:'3x R$29',macro:'500mg/cáps',stock:16,hot:false,link:'https://meli.la/2HE9kDH'},
+  {id:134,cat:'vitamina',platform:'ml',title:'Inibidor de Apetite Natural',img:'https://images.unsplash.com/photo-1546483875-ad7e756af466?q=80&w=400',from:99,price:58,discount:41,rating:4.5,reviews:178,installment:'2x R$29',macro:'500mg/cáps',stock:20,hot:false,link:'https://meli.la/2taKWxw'},
+  // RECUPERAÇÃO
+  {id:135,cat:'recuperacao',platform:'ml',title:'BCAA 2:1:1 Instantâneo',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:89,price:52,discount:42,rating:4.8,reviews:445,installment:'2x R$26',macro:'6g/dose',stock:25,hot:false,link:'https://meli.la/1ebXfHy'},
+  {id:136,cat:'recuperacao',platform:'ml',title:'L-Glutamina — Recuperação Muscular',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:79,price:46,discount:42,rating:4.7,reviews:312,installment:'2x R$23',macro:'5g/dose',stock:30,hot:false,link:'https://meli.la/1YJHpr1'},
+  {id:137,cat:'recuperacao',platform:'ml',title:'Albumina — Proteína Natural',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:59,price:34,discount:42,rating:4.7,reviews:267,installment:'2x R$17',macro:'6g prot/dose',stock:35,hot:false,link:'https://meli.la/2j5j6yG'},
+  {id:138,cat:'recuperacao',platform:'ml',title:'Suplemento Pós-Treino Completo',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:149,price:87,discount:42,rating:4.6,reviews:198,installment:'3x R$29',macro:'30g prot/dose',stock:18,hot:false,link:'https://meli.la/2GHiiNp'},
+  {id:139,cat:'recuperacao',platform:'ml',title:'Suplemento Alimentar Completo',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:129,price:75,discount:42,rating:4.7,reviews:234,installment:'3x R$25',macro:'20g prot/dose',stock:22,hot:false,link:'https://meli.la/31h68Ps'},
+  {id:140,cat:'recuperacao',platform:'ml',title:'Suplemento Performance Total',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:139,price:81,discount:42,rating:4.6,reviews:178,installment:'3x R$27',macro:'25g prot/dose',stock:20,hot:false,link:'https://meli.la/2WGLGJ3'},
+  // ALIMENTAÇÃO SAUDÁVEL
+  {id:141,cat:'alimentacao',platform:'ml',title:'Pasta de Amendoim Natural 500g',img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=400',from:39,price:22,discount:44,rating:4.8,reviews:534,installment:'à vista',macro:'8g prot/dose',stock:45,hot:false,link:'https://meli.la/13pFL13'},
+  {id:142,cat:'alimentacao',platform:'ml',title:'Pasta de Amendoim Integral 1kg',img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=400',from:69,price:40,discount:42,rating:4.9,reviews:712,installment:'2x R$20',macro:'8g prot/dose',stock:38,hot:false,link:'https://meli.la/223HNxQ'},
+  {id:143,cat:'alimentacao',platform:'ml',title:'Energy Gel — Corrida e Treino',img:'https://images.unsplash.com/photo-1556909114-44e3e70034e2?q=80&w=400',from:89,price:49,discount:45,rating:4.7,reviews:312,installment:'2x R$24,50',macro:'25g carb/unid',stock:40,hot:false,link:'https://meli.la/21AhW1r'},
+  {id:144,cat:'alimentacao',platform:'ml',title:'Energy Gel Pack — 10 unidades',img:'https://images.unsplash.com/photo-1556909114-44e3e70034e2?q=80&w=400',from:129,price:74,discount:43,rating:4.8,reviews:198,installment:'2x R$37',macro:'25g carb/unid',stock:25,hot:false,link:'https://meli.la/1uBzDcC'},
+  // ACESSÓRIOS TREINO
+  {id:145,cat:'acessorio_treino',platform:'ml',title:'Garrafa Térmica Stanley 900ml',img:'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=400',from:299,price:179,discount:40,rating:4.9,reviews:1234,installment:'6x R$29,83',macro:'900ml',stock:12,hot:true,link:'https://meli.la/2shapG1'},
+  {id:146,cat:'acessorio_treino',platform:'ml',title:'Garrafa Térmica Inox Premium',img:'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=400',from:199,price:117,discount:41,rating:4.7,reviews:567,installment:'3x R$39',macro:'750ml',stock:18,hot:false,link:'https://meli.la/2GJrLfn'},
+  {id:147,cat:'acessorio_treino',platform:'ml',title:'Garrafa Stanley Original — Oferta',img:'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=400',from:349,price:204,discount:42,rating:4.9,reviews:892,installment:'6x R$34',macro:'1L',stock:8,hot:true,link:'https://meli.la/2JApGMc'},
+  {id:148,cat:'acessorio_treino',platform:'ml',title:'Copo Térmico 500ml — Treino',img:'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=400',from:129,price:75,discount:42,rating:4.7,reviews:445,installment:'3x R$25',macro:'500ml',stock:22,hot:false,link:'https://meli.la/2prHvtr'},
+  {id:149,cat:'acessorio_treino',platform:'ml',title:'Kit Alteres Emborrachados — Casa',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:299,price:174,discount:42,rating:4.8,reviews:534,installment:'6x R$29',macro:'2x5kg',stock:10,hot:false,link:'https://meli.la/2f4Pbk1'},
+  {id:150,cat:'acessorio_treino',platform:'ml',title:'Kit Alteres Completo — Academia',img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400',from:399,price:232,discount:42,rating:4.9,reviews:312,installment:'6x R$38,67',macro:'2x10kg',stock:7,hot:true,link:'https://meli.la/33Vfajw'},
+  {id:151,cat:'alimentacao',platform:'ml',title:'Suplemento Alimentar Premium',img:'https://images.unsplash.com/photo-1546483875-00108398862e?q=80&w=400',from:119,price:69,discount:42,rating:4.6,reviews:198,installment:'3x R$23',macro:'20g prot/dose',stock:25,hot:false,link:'https://meli.la/1snZnMe'},
+  {id:152,cat:'recuperacao',platform:'ml',title:'Suplemento Alimentar Recovery',img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400',from:109,price:63,discount:42,rating:4.7,reviews:167,installment:'2x R$31,50',macro:'15g prot/dose',stock:22,hot:false,link:'https://meli.la/223YDce'},
 ];
 
 function platBadge(p){
@@ -665,7 +759,7 @@ function renderOffer(o){
         <div class="osave">✓ ${save(o.from,o.price)}</div>
       </div>
       ${stockBar(o.stock)}
-      <a href="#" class="obtn obtn-red">Ver Oferta <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="${o.link}" target="_blank" rel="noopener" class="obtn obtn-red">Ver Oferta <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>`;
 }
@@ -679,7 +773,7 @@ function renderSupl(o){
     <div class="scard-body">
       <span class="scard-tag">💊 ${o.cat.charAt(0).toUpperCase()+o.cat.slice(1)}</span>
       <div class="scard-title">${o.title}</div>
-      <div class="scard-macros"><span class="scard-macro">${o.macro}</span><span class="scard-macro">${platBadge(o.platform).replace(/class="plat [^"]+"/,'').replace(/<\/?span[^>]*>/g,'').trim()}</span></div>
+      <div class="scard-macros"><span class="scard-macro">${o.macro}</span></div>
       <div class="orating">${stars(o.rating)}<span style="color:var(--muted)">${o.rating} (${o.reviews})</span></div>
       <div class="oprice-block">
         <div class="scard-from">De R$ ${o.from.toFixed(2).replace('.',',')}</div>
@@ -688,18 +782,21 @@ function renderSupl(o){
         <div class="scard-save">✓ ${save(o.from,o.price)}</div>
       </div>
       ${o.stock&&o.stock<=15?`<div style="font-size:11px;color:var(--red);font-weight:700;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em"><i class="fa-solid fa-fire"></i> Restam ${o.stock} unidades</div>`:''}
-      <a href="#" class="scard-btn">Garantir Oferta <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="${o.link}" target="_blank" rel="noopener" class="scard-btn">Garantir Oferta <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>`;
 }
 
-// Render
+// Render grids
 document.getElementById('main-grid').innerHTML=mainOffers.map(renderOffer).join('');
 document.getElementById('kimono-grid').innerHTML=mainOffers.filter(o=>o.cat==='kimono').map(renderOffer).join('');
 document.getElementById('nogi-grid').innerHTML=mainOffers.filter(o=>o.cat==='nogi').map(renderOffer).join('');
 document.getElementById('supl-grid').innerHTML=suplOffers.map(renderSupl).join('');
 
-// Filters
+// Update offer count
+document.getElementById('s-offers').textContent=mainOffers.length+suplOffers.length;
+
+// Filters main
 function filterMain(cat,btn){
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -707,6 +804,8 @@ function filterMain(cat,btn){
     c.style.display=(cat==='todos'||c.dataset.cat===cat)?'':'none';
   });
 }
+
+// Filters supl
 function filterSupl(cat,btn){
   document.querySelectorAll('.supl-tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -718,13 +817,14 @@ function filterSupl(cat,btn){
 // Popup
 const nomes=['Marco S.','Arthur R.','Davi L.','Guto P.','Felipe M.','Rodrigo T.','Camila F.','Bruno K.'];
 const acoes=[
-  'acabou de garantir o Kimono Combat 🥋',
+  'acabou de garantir o Kimono BJJ 🥋',
   'comprou o Kit Creatina + Pré-treino 💊',
   'entrou no Grupo VIP agora ⚡',
   'pediu a Camiseta Mata Leão 👕',
-  'garantiu a Mochila Tática 45L 🎒',
+  'garantiu a Garrafa Stanley 🥤',
   'aproveitou o Whey a R$109 🥛',
-  'comprou o Rashguard −51% 🔥',
+  'comprou o Rashguard Superpromoção 🔥',
+  'garantiu o Kit Alteres 🏋️',
 ];
 function showPopup(){
   const nome=nomes[Math.floor(Math.random()*nomes.length)];
